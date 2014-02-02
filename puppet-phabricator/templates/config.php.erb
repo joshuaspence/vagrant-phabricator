@@ -1,0 +1,31 @@
+<?php
+
+return array(
+  // -- Core ---------------------------------------------------------------- //
+  'phabricator.base-uri' => 'http://phabricator.joshuaspence.com',
+  'environment.append-paths' => array(
+    '/usr/local/bin',
+  ),
+  'phabricator.timezone' => 'Australia/Sydney',
+  'phabricator.show-beta-applications' => true,
+
+  // -- Daemons ------------------------------------------------------------- //
+  'phd.user' => '<%= scope.lookupvar("phabricator::params::phd_user") %>',
+
+  // -- Files --------------------------------------------------------------- //
+  'files.enable-imagemagick' => false,
+
+  // -- Notifications ------------------------------------------------------- //
+  'notification.enabled' => true,
+  'notification.user' => '<%= scope.lookupvar("phabricator::params::aphlict_user") %>',
+
+  // -- Releeph ------------------------------------------------------------- //
+  'releeph.installed' => true,
+
+  // -- Repositories -------------------------------------------------------- //
+  'repository.default-local-path' => '<%= scope.lookupvar("phabricator::params::repo_dir") %>',
+
+  // -- Syntax Highlighting ------------------------------------------------- //
+  'pygments.enabled' => true,
+
+) + phabricator_read_config_file('development');

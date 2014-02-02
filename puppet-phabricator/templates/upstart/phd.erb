@@ -1,0 +1,48 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          phd
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Wrapper around the Phabricator Daemon launcher.
+### END INIT INFO
+
+NAME="phd"
+DAEMON="<%= scope.lookupvar('phabricator::params::base_dir') %>/phabricator/bin/$NAME"
+DESC="Phabricator Daemon launcher"
+
+# Exit if the package is not installed.
+test -x "$DAEMON" || exit 0
+
+# Load the VERBOSE setting and other rcS variables.
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+. /lib/lsb/init-functions
+
+case "$1" in
+    start)
+        "$DAEMON" start || exit $?
+        exit 0
+        ;;
+    stop)
+        "$DAEMON" stop && exit 0 || exit $?
+        ;;
+    status)
+        "$DAEMON" status && exit 0 || exit $?
+        ;;
+    list)
+        "$DAEMON" list && exit 0 || exit $?
+        ;;
+    restart)
+        "$DAEMON" restart && exit 0 || exit $?
+        ;;
+    *)
+        echo "Usage: /etc/init.d/$NAME {start|stop|status|list|restart}"
+        exit 1
+        ;;
+esac
+
+exit "$RETVAL"
