@@ -4,6 +4,9 @@ Vagrant.configure('2') do |config|
   config.vm.box = 'hashicorp/precise64'
 
   config.vm.synced_folder '.', '/vagrant', :disabled => true
+  config.vm.synced_folder '../../phacility/arcanist', '/usr/src/arcanist'
+  config.vm.synced_folder '../../phacility/libphutil', '/usr/src/libphutil'
+  config.vm.synced_folder '../../phacility/phabricator', '/usr/src/phabricator'
 
   config.vm.provider :virtualbox do |virtualbox|
     virtualbox.cpus = 1
