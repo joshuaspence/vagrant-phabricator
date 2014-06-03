@@ -8,19 +8,19 @@ class phabricator::install {
     ensure   => latest,
     provider => git,
     path     => "${phabricator::params::base_dir}/arcanist",
-    source   => 'git://github.com/phacility/arcanist.git',
+    source   => 'https://github.com/phacility/arcanist.git',
   }
   vcsrepo { 'libphutil':
     ensure   => latest,
     provider => git,
     path     => "${phabricator::params::base_dir}/libphutil",
-    source   => 'git://github.com/phacility/libphutil.git',
+    source   => 'https://github.com/phacility/libphutil.git',
   }
   vcsrepo { 'phabricator':
     ensure   => latest,
     provider => git,
     path     => "${phabricator::params::base_dir}/phabricator",
-    source   => 'git://github.com/phacility/phabricator.git',
+    source   => 'https://github.com/phacility/phabricator.git',
   }
 
   file { '/usr/bin/arc':
