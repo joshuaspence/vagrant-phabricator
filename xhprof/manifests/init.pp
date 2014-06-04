@@ -4,8 +4,6 @@ class xhprof {
     ensure => present,
   }
 
-  php::module { 'xhprof':
-    ensure  => present,
-  }
+  php::module { 'xhprof': }
 
 }
