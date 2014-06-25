@@ -15,6 +15,9 @@ return array(
   // -- Files --------------------------------------------------------------- //
   'files.enable-imagemagick' => false,
 
+  // -- Mail -----------------------------------------------------------------//
+  'metamta.mail-adapter' => 'PhabricatorMailImplementationTestAdapter',
+
   // -- Notifications ------------------------------------------------------- //
   'notification.enabled' => true,
   'notification.user' => '<%= scope.lookupvar("phabricator::params::aphlict_user") %>',
