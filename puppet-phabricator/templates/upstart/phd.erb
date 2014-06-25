@@ -31,7 +31,7 @@ case "$1" in
         "$DAEMON" stop && exit 0 || exit $?
         ;;
     status)
-        "$DAEMON" status && exit 0 || exit $?
+        "$DAEMON" status --local && exit 0 || exit $?
         ;;
     list)
         "$DAEMON" list && exit 0 || exit $?
